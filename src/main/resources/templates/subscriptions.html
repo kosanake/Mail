@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Subscriptions</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+
+    <body>
+        <form method="POST" th:action="@{/logout}" id="logoutForm">
+            <input type="submit" value="Logout"/>
+        </form>
+
+        <form method="POST" th:action="@{/subscriptions}" th:object="${subscription}">
+
+            <div class="grid">
+                <h3>Register subscription:</h3>
+
+                <label for="name">Name: </label>
+                <input name="name" type="text" th:field="*{name}"/>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">Name Error</span>
+                <br/>
+
+                <label for="email">Email: </label>
+                <input name="email" type="text" th:field="*{email}"/>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}">Email Error</span>
+
+                <br/>
+                <button>Submit subscription</button>
+
+                <th:block th:each="userSubscription : ${userSubscriptions}">
+                    <tr>
+                        <td th:text="${userSubscription.name}">Subscriber name</td>
+                        <td th:text="${userSubscription.email}">Subscriber e-mail</td>
+                    </tr>
+                </th:block>
+
+            </div>
+        </form>
+    </body>
+</html>
