@@ -25,6 +25,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
+                .defaultSuccessUrl("/subscriptions")
+
+                .and()
+                    .logout()
+                        .logoutSuccessUrl("/login")
+
+                .and()
+                    .authorizeRequests()
+                        .antMatchers("/subscriptions")
+                            .access("hasRole('ROLE_USER')")
+                        .antMatchers("/**")
+                            .access("permitAll")
+
                 .and()
                     .csrf()
                         .ignoringAntMatchers("/h2-console/**")

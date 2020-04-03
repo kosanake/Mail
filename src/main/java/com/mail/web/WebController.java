@@ -12,7 +12,8 @@ public class WebController implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("subscriptions");
+        registry.addRedirectViewController("/", "/login");
+        registry.addViewController("/subscriptions").setViewName("subscriptions");
     }
 
 }
