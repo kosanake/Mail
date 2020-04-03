@@ -21,7 +21,7 @@ import java.time.Instant;
 public class Subscription extends SuperClass {
 
     @ManyToOne
-    @NotNull(message = "Login name required")
+    @NotNull(message = "User required")
     private User user;
 
     @NotBlank(message = "Subscriber name required")
