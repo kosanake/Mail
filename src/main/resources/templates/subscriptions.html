@@ -12,7 +12,7 @@
             <input type="submit" value="Logout"/>
         </form>
 
-        <form method="POST" th:action="@{/subscriptions}" th:object="${subscription}">
+        <form method="POST" th:action="@{/subscriptions}" th:object="${subscriptionDto}">
 
             <div class="grid">
                 <h3>Register subscription:</h3>
@@ -33,7 +33,7 @@
                 <br/>
                 <button>Submit subscription</button>
 
-                <th:block th:each="userSubscription : ${userSubscriptions}">
+                <th:block th:each="userSubscription : ${userSubscriptionsDto}">
                     <tr>
                         <td th:text="${userSubscription.name}">Subscriber name</td>
                         <td th:text="${userSubscription.email}">Subscriber e-mail</td>
