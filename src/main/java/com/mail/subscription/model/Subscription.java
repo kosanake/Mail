@@ -27,6 +27,7 @@ public class Subscription extends SuperClass {
     @NotBlank(message = "Subscriber name required")
     private String name;
 
+    @Column(unique = true)
     @Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "Wrong email format")
     private String email;
 

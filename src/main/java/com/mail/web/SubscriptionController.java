@@ -6,6 +6,7 @@ import com.mail.subscription.dto.mapper.SubscriptionMapper;
 import com.mail.subscription.model.Subscription;
 import com.mail.subscription.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -55,7 +56,12 @@ public class SubscriptionController {
         }
 
         Subscription subscription = subscriptionMapper.subscriptionDtoToSubscription(subscriptionDto);
-        subscriptionRepository.save(subscription);
+        try {
+            subscriptionRepository.save(subscription);
+        } catch (DataIntegrityViolationException e) {
+            errors.rejectValue("email", "", "Subscription for Email: " + subscription.getEmail() + " already exists");
+            return "subscriptions";
+        }
 
         return "redirect:/subscriptions";
     }
