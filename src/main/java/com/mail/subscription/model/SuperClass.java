@@ -1,4 +1,4 @@
-package com.mail.entity;
+package com.mail.subscription.model;
 
 import lombok.Data;
 

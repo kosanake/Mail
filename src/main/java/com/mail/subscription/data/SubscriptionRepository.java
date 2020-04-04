@@ -1,7 +1,7 @@
-package com.mail.data;
+package com.mail.subscription.data;
 
-import com.mail.entity.Subscription;
-import com.mail.entity.User;
+import com.mail.subscription.model.Subscription;
+import com.mail.subscription.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.mail.security;
 
-import com.mail.data.UserRepository;
-import com.mail.entity.User;
+import com.mail.subscription.data.UserRepository;
+import com.mail.subscription.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

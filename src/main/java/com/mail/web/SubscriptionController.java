@@ -1,10 +1,10 @@
 package com.mail.web;
 
-import com.mail.data.SubscriptionRepository;
-import com.mail.dto.SubscriptionDto;
-import com.mail.dto.mapper.SubscriptionMapper;
-import com.mail.entity.Subscription;
-import com.mail.entity.User;
+import com.mail.subscription.data.SubscriptionRepository;
+import com.mail.subscription.dto.SubscriptionDto;
+import com.mail.subscription.dto.mapper.SubscriptionMapper;
+import com.mail.subscription.model.Subscription;
+import com.mail.subscription.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

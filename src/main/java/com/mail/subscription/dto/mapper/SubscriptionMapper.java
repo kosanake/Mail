@@ -1,9 +1,9 @@
-package com.mail.dto.mapper;
+package com.mail.subscription.dto.mapper;
 
 
-import com.mail.dto.SubscriptionDto;
-import com.mail.entity.Subscription;
-import com.mail.entity.User;
+import com.mail.subscription.dto.SubscriptionDto;
+import com.mail.subscription.model.Subscription;
+import com.mail.subscription.model.User;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

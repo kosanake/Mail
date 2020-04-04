@@ -1,4 +1,4 @@
-package com.mail.dto;
+package com.mail.subscription.dto;
 
 import lombok.Data;
 
