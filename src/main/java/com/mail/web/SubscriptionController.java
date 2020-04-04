@@ -19,6 +19,9 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Subscriptions form controller
+ */
 @Controller
 @RequestMapping("/subscriptions")
 public class SubscriptionController {
