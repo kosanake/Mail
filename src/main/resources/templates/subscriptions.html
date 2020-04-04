@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Subscriptions</title>
-        <link rel="stylesheet" th:href="@{/styles.css}"/>
-    </head>
+<head>
+    <meta charset="utf-8"/>
+    <title>Subscriptions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:  href="@{/styles.css}"/>
+</head>
 
-    <body>
-        <form method="POST" th:action="@{/logout}" id="logoutForm">
-            <input type="submit" value="Logout"/>
-        </form>
+<body>
+<div class="container">
+
+    <h2 class="form-signin-heading" align="center">Register subscription</h2>
+
+    <div class="row col-md-12 table-responsive">
 
         <form method="POST" th:action="@{/subscriptions}" th:object="${subscriptionDto}">
-
-            <div class="grid">
-                <h3>Register subscription:</h3>
-
+            <p>
                 <label for="name">Name: </label>
-                <input name="name" type="text" th:field="*{name}"/>
+                <input name="name" type="text" class="form-control" th:field="*{name}"/>
                 <span class="validationError"
                       th:if="${#fields.hasErrors('name')}"
                       th:errors="*{name}">Name Error</span>
-                <br/>
-
+            </p>
+            <p>
                 <label for="email">Email: </label>
-                <input name="email" type="text" th:field="*{email}"/>
+                <input name="email" type="text" class="form-control" th:field="*{email}"/>
                 <span class="validationError"
                       th:if="${#fields.hasErrors('email')}"
                       th:errors="*{email}">Email Error</span>
+            </p>
 
-                <br/>
-                <button>Submit subscription</button>
+            <button class="btn btn-primary">Submit subscription</button>
 
-                <th:block th:each="userSubscription : ${userSubscriptionsDto}">
+            </p>
+
+            <table id="customerTable" class="table">
+                <thead>
                     <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="userSubscription : ${userSubscriptionsDto}">
                         <td th:text="${userSubscription.name}">Subscriber name</td>
                         <td th:text="${userSubscription.email}">Subscriber e-mail</td>
                     </tr>
-                </th:block>
-
-            </div>
+                </tbody>
+            </table>
         </form>
-    </body>
+
+        <form method="POST" th:action="@{/logout}" id="logoutForm">
+            <button class="btn btn-primary">Logout</button>
+        </form>
+    </div>
+</div>
+</body>
 </html>
