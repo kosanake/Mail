@@ -13,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import java.time.Instant;
 
 /**
- * Subscription mapper
+ * Subscription <-> SubscriptionDto mapper
  */
 @Mapper
 public interface SubscriptionMapper {
