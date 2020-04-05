@@ -23,8 +23,8 @@ public class SubscriptionService {
      * Create and persist subscription entity from subscriptionDto
      * @param subscriptionDto subscription dto
      */
-    public void createSubscription(SubscriptionDto subscriptionDto) {
+    public Subscription createSubscription(SubscriptionDto subscriptionDto) {
         Subscription subscription = subscriptionMapper.subscriptionDtoToSubscription(subscriptionDto);
-        subscriptionRepository.save(subscription);
+        return subscriptionRepository.save(subscription);
     }
 }
