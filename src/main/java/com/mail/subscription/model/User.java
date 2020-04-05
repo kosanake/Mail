@@ -11,6 +11,9 @@ import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * User entity participating in authentication process
+ */
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 @Entity
